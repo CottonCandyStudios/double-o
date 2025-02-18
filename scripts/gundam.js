@@ -10,8 +10,8 @@ class Gundam {
         this.model = model;
         this.name = name;
         this.pilot = pilot;
-        this.weapon = weapon;
         this.gn_drive = gn_drive;
+        this.weapon = weapon;
         this.image = image;
     }
     gnDrive(GNDriveState) {

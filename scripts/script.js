@@ -47,17 +47,22 @@ const gundamVirtue = new Gundam(
 );
 
 const main = document.querySelector("main");
+const newMissionButton = document.querySelector(".newMission");
+const closeMission = document.querySelector(".closeMission");
 
-const printHTML = (currentGundam) => {
+let gundams = [gundamExia, gundamDynames, gundamKyrios, gundamVirtue, gundamNadhlee];
+let gundamsOnMission = [];
+
+function printHTML(printTarget) {
     const newArticle = document.createElement("article");
     newArticle.innerHTML = `
-    <h1>${currentGundam.model}</h1>
-        <img src="${currentGundam.image}" alt="${currentGundam.name}">
-        <h1>${currentGundam.name}</h1>
+    <h1>${printTarget.model}</h1>
+        <img src="${printTarget.image}" alt="${printTarget.name}">
+        <h1>${printTarget.name}</h1>
         <ul>
-            <li>Pilot: ${currentGundam.pilot}</li>
-            <li>Main Weapon: ${currentGundam.weapon}</li>
-            <li>GN Drive State: ${currentGundam.gn_drive}</li>
+            <li>Pilot: ${printTarget.pilot}</li>
+            <li>Main Weapon: ${printTarget.weapon}</li>
+            <li>GN Drive State: ${printTarget.gn_drive}</li>
         </ul>
     `;
     main.append(newArticle);
@@ -69,15 +74,34 @@ const dropGundams = (gundam, callback) => {
             model: gundam.model,
             name: gundam.name,
             pilot: gundam.pilot,
-            weapon: gundam.weapon,
             gn_drive: gundam.gn_drive,
+            weapon: gundam.weapon,
             image: gundam.image,
         };
         gundam.gnDrive(true);
-        callback(currentGundam)
+        callback(currentGundam);
     });
 };
 
-let gundams = [gundamExia, gundamDynames, gundamKyrios, gundamVirtue];
+document.querySelectorAll(".gundamSelector button").forEach((button, index) => {
+    button.addEventListener("click", function () {
+        let gundamButton = index;
+        if (gundamsOnMission.includes(gundams[gundamButton]) === false) {
+            gundamsOnMission.push(gundams[gundamButton]);
+        };
+    });
+});
 
-dropGundams(gundams, printHTML);
+newMissionButton.addEventListener("click", () => {
+    main.innerHTML = "";
+    document.querySelector("header").classList.add("hidden");
+    closeMission.classList.remove("hidden");
+    dropGundams(gundamsOnMission, printHTML);
+    gundamsOnMission = [];
+});
+
+closeMission.addEventListener("click", () => {
+    main.innerHTML = "";
+    document.querySelector("header").classList.remove("hidden");
+    closeMission.classList.add("hidden");
+});
