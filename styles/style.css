@@ -77,5 +77,9 @@ div.title {
 }
 
 .closeMission {
-    margin: 0 auto;
+    text-align: center;
+}
+
+.closeMission button {
+    margin: 2rem auto;
 }
