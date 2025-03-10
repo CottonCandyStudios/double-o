@@ -84,17 +84,14 @@ const dropGundams = (gundam, callback) => {
 };
 
 document.querySelectorAll(".gundamSelector button").forEach((button, index) => {
-    console.log(gundams.indexOf(gundams[index]));
     button.addEventListener("click", function () {
         if (gundamsOnMission.includes(gundams[index]) === false) {
             this.classList.add("gundamSelected");
             gundamsOnMission.push(gundams[index]);
-        } else {
-            console.log(Object(gundams[index]));
-            
-            gundamsOnMission.splice(Object(gundams[index]), 1);
-        }
-        ;
+        } else if (gundamsOnMission.includes(gundams[index]) === true) {
+            this.classList.remove("gundamSelected");
+            gundamsOnMission.splice(gundamsOnMission.indexOf(gundams[index]), 1);
+        };
     });
 });
 
