@@ -84,17 +84,24 @@ const dropGundams = (gundam, callback) => {
 };
 
 document.querySelectorAll(".gundamSelector button").forEach((button, index) => {
+    console.log(gundams.indexOf(gundams[index]));
     button.addEventListener("click", function () {
-        let gundamButton = index;
-        if (gundamsOnMission.includes(gundams[gundamButton]) === false) {
-            gundamsOnMission.push(gundams[gundamButton]);
-        };
+        if (gundamsOnMission.includes(gundams[index]) === false) {
+            this.classList.add("gundamSelected");
+            gundamsOnMission.push(gundams[index]);
+        } else {
+            console.log(Object(gundams[index]));
+            
+            gundamsOnMission.splice(Object(gundams[index]), 1);
+        }
+        ;
     });
 });
 
 newMissionButton.addEventListener("click", () => {
     main.innerHTML = "";
-    document.querySelector("header").classList.add("hidden");
+    document.querySelector(".gundamSelector").classList.add("hidden");
+    newMissionButton.classList.add("hidden");
     closeMission.classList.remove("hidden");
     dropGundams(gundamsOnMission, printHTML);
     gundamsOnMission = [];
@@ -102,6 +109,10 @@ newMissionButton.addEventListener("click", () => {
 
 closeMission.addEventListener("click", () => {
     main.innerHTML = "";
-    document.querySelector("header").classList.remove("hidden");
+    document.querySelectorAll(".gundamSelector button").forEach((button) => {
+        button.classList.remove("gundamSelected");
+    });
+    document.querySelector(".gundamSelector").classList.remove("hidden");
     closeMission.classList.add("hidden");
+    newMissionButton.classList.remove("hidden");
 });

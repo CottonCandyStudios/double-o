@@ -16,21 +16,10 @@
 body {
     /* background: black; */
     font-family: Seele-One;
-    color: black;
+    color: #3e3e3e;
 }
 
 header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5%;
-    width: 50vw;
-    height: 30vh;
-    margin: 0 auto;
-    padding: 3rem;
-    background-color: rgba(118, 223, 255, 0.2);
-    border: 4px solid rgba(118, 223, 255, 0.2);
-    border-radius: 5vh;
 }
 
 main {
@@ -51,6 +40,10 @@ article li {
     list-style-type: none;
 }
 
+h1 {
+    text-align: center;
+}
+
 button {
     max-width: fit-content;
     border-radius: .2rem;
@@ -63,23 +56,71 @@ img {
     height: 35vh;
 }
 
-div.title {
+header p {
     text-align: center;
-}
-
-.title p {
     font-size: 2rem;
     font-family: Plavsky;
 }
 
+.gundamSelector {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    align-content: space-between;
+}
+
+.gundamSelector button {
+    background-color: #989EA6;
+    background-blend-mode: luminosity;
+    background-size: cover;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin: .5rem;
+    padding: 3rem;
+    border-radius: 50%;
+    border: 8px rgb(255, 255, 255) dashed;
+}
+
+.gundamSelector .gundamExia {
+    background-image: url(/img/gundam_exia-face.png);    
+}
+
+.gundamSelector .gundamDynames {
+    background-image: url(/img/gundam_dynames-face.png);    
+}
+
+.gundamSelector .gundamKyrios {
+    background-image: url(/img/gundam_kyrios-face.png);    
+}
+
+.gundamSelector .gundamVirtue {
+    background-image: url(/img/gundam_virtue-face.png);    
+}
+
+.missionButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.missionButtons button {
+    padding: 1rem;
+    margin: 2rem;
+}
+
+button.gundamSelected {
+    background-color: #020F59;
+    background-blend-mode: normal;
+    border-color: rgba(19, 220, 242, .5);
+    border-style: outset;
+}
+
 .hidden {
     display: none;
-}
-
-.closeMission {
-    text-align: center;
-}
-
-.closeMission button {
-    margin: 2rem auto;
 }
