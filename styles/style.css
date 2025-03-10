@@ -85,19 +85,19 @@ header p {
 }
 
 .gundamSelector .gundamExia {
-    background-image: url("/img/gundam_exia-face.png");    
+    background-image: url("../img/gundam_exia-face.png");    
 }
 
 .gundamSelector .gundamDynames {
-    background-image: url("/img/gundam_dynames-face.png");    
+    background-image: url("../img/gundam_dynames-face.png");    
 }
 
 .gundamSelector .gundamKyrios {
-    background-image: url("/img/gundam_kyrios-face.png");    
+    background-image: url("../img/gundam_kyrios-face.png");    
 }
 
 .gundamSelector .gundamVirtue {
-    background-image: url("/img/gundam_virtue-face.png");    
+    background-image: url("../img/gundam_virtue-face.png");    
 }
 
 .missionButtons {
