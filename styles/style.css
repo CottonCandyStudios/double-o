@@ -19,8 +19,8 @@ body {
     color: #3e3e3e;
 }
 
-header {
-}
+/* header {
+} */
 
 main {
     display: grid;
@@ -123,4 +123,8 @@ button.gundamSelected {
 
 .hidden {
     display: none;
+}
+
+.gundamcard-pilot_name {
+    color: darkcyan;
 }

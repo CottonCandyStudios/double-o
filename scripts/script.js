@@ -1,50 +1,14 @@
-import Gundam from "./gundam.js";
+import GundamBuilder from "./gundam.js";
 
-const gundamExia = new Gundam(
-    "GN-001",
-    "Gundam Exia",
-    "Setsuna F. Seiei",
-    false,
-    "GN Sword",
-    "img/GN-001.png",
-    " ...Eliminating the target!"
-);
+const gundamExia = new GundamBuilder("GN-001", "Gundam Exia", "Setsuna F. Seiei").setWeapon("GN Sword").build();
 
-const gundamDynames = new Gundam(
-    "GN-002",
-    "Gundam Dynames",
-    "Lockon Stratos",
-    false,
-    "GN Sniper Rifle",
-    "img/GN-002.png"
-);
+const gundamDynames = new GundamBuilder("GN-002", "Gundam Dynames", "Lockon Stratos").setWeapon("GN Sniper Rifle").build();
 
-const gundamKyrios = new Gundam(
-    "GN-003",
-    "Gundam Kyrios",
-    "Allelujah Haptism",
-    false,
-    "GN Beam Submachine Gun",
-    "img/GN-003.png"
-);
+const gundamKyrios = new GundamBuilder("GN-003", "Gundam Kyrios", "Allelujah Haptism").setWeapon("GN Beam Submachine Gun").build();
 
-const gundamNadhlee = new Gundam(
-    "GN-004",
-    "Gundam Nadleeh",
-    "Tieria Erde",
-    false,
-    "GN Beam Saber",
-    "img/GN-004.png"
-);
+const gundamNadhlee = new GundamBuilder("GN-004", "Gundam Nadleeh", "Tieria Erde").setWeapon("GN Beam Saber").build();
 
-const gundamVirtue = new Gundam(
-    "GN-005",
-    "Gundam Virtue",
-    "Tieria Erde",
-    false,
-    "GN Bazooka",
-    "img/GN-005.png"
-);
+const gundamVirtue = new GundamBuilder("GN-005", "Gundam Virtue", "Tieria Erde").setWeapon("GN Bazooka").build();
 
 const main = document.querySelector("main");
 const newMissionButton = document.querySelector(".newMission");
@@ -60,7 +24,7 @@ function printHTML(printTarget) {
         <img src="${printTarget.image}" alt="${printTarget.name}">
         <h1>${printTarget.name}</h1>
         <ul>
-            <li>Pilot: ${printTarget.pilot}</li>
+            <li class="gundamcard-pilot">Pilot: <span class="gundamcard-pilot_name">${printTarget.pilot}</span></li>
             <li>Main Weapon: ${printTarget.weapon}</li>
             <li>GN Drive State: ${printTarget.gn_drive}</li>
         </ul>
